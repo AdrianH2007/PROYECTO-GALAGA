@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Galaga Infinite</title>
+    <!-- Enlace al archivo de estilos externos -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- HUD Marcador -->
+        <div id="hud" class="hidden">
+            <div id="score-display">SCORE: 00000</div>
+            <div id="difficulty-display">MODO: FÁCIL</div>
+            <div id="time-display">TIEMPO: 00:00</div>
+        </div>
+
+        <!-- Menú Principal -->
+        <div id="menu-screen" class="overlay">
+            <h1>GALAGA<br><span style="font-size:1.2rem; color:#fff; text-shadow:none;">INFINITE</span></h1>
+            
+            <p class="selector-title">Selecciona tu Nave</p>
+            <div class="ship-selector">
+                <div class="ship-option selected" data-type="striker">
+                    <canvas id="preview-striker" width="40" height="40"></canvas>
+                    <p>STRIKER</p>
+                </div>
+                <div class="ship-option" data-type="vanguard">
+                    <canvas id="preview-vanguard" width="40" height="40"></canvas>
+                    <p>VANGUARD</p>
+                </div>
+                <div class="ship-option" data-type="phantom">
+                    <canvas id="preview-phantom" width="40" height="40"></canvas>
+                    <p>PHANTOM</p>
+                </div>
+            </div>
+
+            <button id="start-btn" class="btn">Jugar</button>
+            <p class="controls-hint">[Flechas o A/D para mover - Espacio para disparar]</p>
+        </div>
+
+        <!-- Pantalla de Game Over -->
+        <div id="gameover-screen" class="overlay hidden">
+            <h1 class="gameover-title">GAME OVER</h1>
+            <p id="final-score" style="font-size: 1.2rem; margin-bottom: 10px;"></p>
+            <p id="final-time" style="font-size: 1rem; color: #888; margin-bottom: 20px;"></p>
+            <button id="restart-btn" class="btn">Volver al Menú</button>
+        </div>
+
+        <!-- Lienzo del Juego -->
+        <canvas id="gameCanvas" width="440" height="600"></canvas>
+    </div>
+
+    <!-- Enlace al archivo de JavaScript externo -->
+    <script src="scrip.js"></script>
+</body>
+</html>
