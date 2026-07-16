@@ -1,0 +1,13 @@
+{
+  "name": "galaga-grupo-7",
+  "version": "1.0.0",
+  "description": "Galaga web application with Node.js and MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "mongodb": "^4.17.2"
+  }
+}

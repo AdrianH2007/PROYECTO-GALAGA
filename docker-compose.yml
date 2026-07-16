@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  # Servidor de Base de Datos (MongoDB)
+  mongodb:
+    image: mongo:4.4
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # Servidor Web y de API (Tu aplicación Node.js con Galaga)
+  app:
+    build: .
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      # Pasa la URL de conexión a MongoDB usando el nombre del servicio como host
+      - MONGO_URL=mongodb://mongodb:27017/mydatabase
+    working_dir: /app
+
+# Volumen persistente para que tus datos de Mongo no se borren al apagar el contenedor
+volumes:
+  mongo-data:
